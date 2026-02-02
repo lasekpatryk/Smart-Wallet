@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-import data_loader, json
+import data_loader, uvicorn
 
-app = FastAPI()
+app = FastAPI(title="Smart Wallet Python Service")
 
 @app.get("/hist_price/{asset}/{period},{interval}")
 def get_hist_price(asset, period, interval):
@@ -63,3 +63,6 @@ def get_recommendations(asset):
     df = data_loader.get_recommendations(asset)
     res = df.to_dict(orient='records')
     return res
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=8000)
