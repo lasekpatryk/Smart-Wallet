@@ -1,9 +1,11 @@
+package com.wallet;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class TableTransactions {
 
-    private long transId;
+    private float transId;
     private String asset;
     private BigDecimal amount;
     private BigDecimal price;
