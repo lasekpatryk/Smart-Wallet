@@ -30,7 +30,36 @@ def get_currencies():
     json_res = [{"symbol": res[0][:res[0].index('=')], "price": round(res[1],2)} for res in res]
     return json_res
 
+@app.get("/news/{asset}")
+def get_asset_news(asset):
+    df = data_loader.get_asset_news(asset)
+    res = df.to_dict(orient='records')
+    return res
 
+@app.get("/calendar/{asset}")
+def get_calendar(asset):
+    df = data_loader.get_asset_calendar(asset)
+    df = df.rename(columns={
+        'Dividend Date': 'dividend_date',
+        'Ex-Dividend Date': 'ex_dividend_date',
+        'Earnings Date': 'earnings_date',
+        'Earnings High': 'earnings_high',
+        'Earnings Low': 'earnings_low',
+        'Earnings Average': 'earnings_average',
+        'Revenue High': 'revenue_high',
+        'Revenue Low': 'revenue_low',
+        'Revenue Average': 'revenue_average'
+    })
+    res = df.to_dict(orient='records')
+    return res
 
+@app.get("/targets/{asset}")
+def get_target_price(asset):
+    df = data_loader.get_analyst_price_targets(asset)
+    return [df]
 
-print(get_currencies())
+@app.get("/reccomendations/{asset}")
+def get_recommendations(asset):
+    df = data_loader.get_recommendations(asset)
+    res = df.to_dict(orient='records')
+    return res

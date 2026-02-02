@@ -29,41 +29,45 @@ def get_currencies():
         "USDCAD=X",  # Dolar amerykański / Dolar kanadyjski
         "NZDUSD=X"  # Dolar nowozelandzki / Dolar amerykański
     ]
-    results = []
+    res = []
     for i, currency in enumerate(forex_majors):
         ticker = yf.Ticker(currency)
         df = ticker.get_fast_info()
-        results.append([forex_majors[i], df['lastPrice']])
+        res.append([forex_majors[i], df['lastPrice']])
 
-    return results
-#
-# ticker = yf.Ticker("AAPL")
-#
-# # Pobierz historię (zamiast start/end możesz użyć period)
-# # period: 1d, 5d, 1mo, 3mo, 6mo, 1y, 2y, 5y, 10y, ytd, max
-# hist = ticker.history(period="1mo", interval="1d")
-#
-# # Wyświetl dane
-# # print(hist.head())
-#
-# # Dodatkowe informacje (niektóre mogą zwracać pusty wynik zależnie od dostępności)
-# print(ticker.get_recommendations())         # Podstawowe dane o firmie
-#
-# data = pd.DataFrame(ticker.history(period="1mo", interval="1d"))
-# print(data)
-#
-# news_data = []
-#
-# for item in ticker.news:
-#
-#     content = item.get('content')
-#
-#     title = content.get('title')
-#     summary = content.get('summary')
-#     pubDate = content.get('pubDate')
-#     url = content.get('clickThroughUrl').get('url')
-#     news_data.append({'Tytuł': title,'Podsumowanie':  summary,'Data':  pubDate,'URL':  url})
-#
-# df_news = pd.DataFrame(news_data)
-#
-# print(df_news)
+    return res
+
+def get_asset_news(asset):
+    ticker = yf.Ticker(asset)
+    news_data = []
+
+    for item in ticker.get_news():
+
+        content = item.get('content')
+
+        title = content.get('title')
+        summary = content.get('summary')
+        pubDate = content.get('pubDate')
+        url = content.get('clickThroughUrl').get('url')
+        news_data.append({'title': title,'summary':  summary,'date':  pubDate,'url':  url})
+
+    res = pd.DataFrame(news_data)
+    res = res.sort_values(by="date", ascending=False).reset_index(drop=True)
+    return res
+
+
+def get_asset_calendar(asset):
+    ticker = yf.Ticker(asset)
+    calendar = ticker.get_calendar()
+    res = pd.DataFrame(calendar)
+    return res
+
+def get_analyst_price_targets(asset):
+    ticker = yf.Ticker(asset)
+    target = ticker.get_analyst_price_targets()
+    return target
+
+def get_recommendations(asset):
+    ticker = yf.Ticker(asset)
+    return ticker.get_recommendations()
+
