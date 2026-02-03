@@ -33,6 +33,7 @@ public class WalletApplication {
          userData.setCountry("TestZapisuKraju");
          userData.setPostCode(2026020320260203L);
          userData.setSupportMail("TestPomocniczegoMaila");
+         userData.setPhoneNumber(202602032026L);
 
          repositoryUserData.save(userData);
          System.out.println("ZAPISANO: User " + userData.getUserId() + " " + userData.getLogin() );
