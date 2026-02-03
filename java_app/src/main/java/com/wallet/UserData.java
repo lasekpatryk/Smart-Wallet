@@ -1,3 +1,4 @@
+// 1
 package com.wallet;
 
 import jakarta.persistence.Entity;
@@ -131,6 +132,3 @@ interface RepositoryUserData extends CrudRepository <UserData, Long> {
     Optional<UserData> findById(Long id);
 
 }
-
-
-
