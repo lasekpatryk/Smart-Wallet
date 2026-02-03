@@ -63,4 +63,4 @@ public class TableTransactions {
 }
 @Repository
 interface RepositoryTableTransaction extends CrudRepository<TableTransactions, Long>{
-        }
+}

@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
@@ -124,7 +125,7 @@ import java.util.Optional;
         this.supportMail = supportMail;
     }
 }
-
+@Repository
 interface RepositoryUserData extends CrudRepository <UserData, Long> {
 
     UserData save(UserData userData);

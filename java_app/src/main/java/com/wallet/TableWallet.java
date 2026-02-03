@@ -5,8 +5,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 
 @Entity
 public class TableWallet {
@@ -58,4 +61,9 @@ public class TableWallet {
     public void setWithdrawal(float withdrawal) {
         this.withdrawal = withdrawal;
     }
+
+}
+
+@Repository
+interface RepositoryTableWallet extends CrudRepository <TableWallet, Long>{
 }
