@@ -5,16 +5,30 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.NoSuchElementException;
 
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import java.io.IOException;
 
 @SpringBootApplication
 
-public class WalletApplication {
+public class WalletApplication extends Application{
     public static void main(String[] args) {
         SpringApplication.run(WalletApplication.class, args);
+    }
+    @Override
+    public void start(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(WalletApplication.class.getResource("/main-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 400, 400);
+        stage.setTitle("Smart Wallet - Twój Portfel");
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Bean
