@@ -283,7 +283,7 @@
             </LinearGradient>
          </textFill>
       </Button>
-      <Button layoutX="85.0" layoutY="394.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="411.0" style="-fx-background-color: #1A1A1B;" text="Cancel">
+      <Button fx:id="cancel" layoutX="85.0" layoutY="394.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="411.0" style="-fx-background-color: #1A1A1B;" text="Cancel">
          <font>
             <Font size="15.0" />
          </font>
