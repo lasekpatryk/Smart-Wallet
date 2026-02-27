@@ -34,7 +34,7 @@ public class WalletApplication extends Application {
 
         fxmlLoader.setControllerFactory(springContext::getBean);
 
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        Scene scene = new Scene(fxmlLoader.load(), 600, 500);
 
         stage.setTitle("FEHU - Smart Wallet");
         stage.setScene(scene);

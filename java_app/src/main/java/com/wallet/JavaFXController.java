@@ -26,8 +26,4 @@ public class JavaFXController {
     @FXML
     private Label statusLabel;
 
-    @FXML
-    protected void onHelloButtonClick() {
-        statusLabel.setText("Saldo: 1,24 BTC - Pobrane z bazy!");
-    }
 }

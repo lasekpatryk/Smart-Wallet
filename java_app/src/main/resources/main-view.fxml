@@ -6,7 +6,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="600.0" style="-fx-background-color: #2C3E50;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFXController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="600.0" style="-fx-background-color: #2C3E50;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wallet.JavaFXController">
    <children>
       <AnchorPane prefHeight="92.0" prefWidth="600.0" style="-fx-background-color: #1A1A1B;">
          <cursor>
@@ -257,7 +257,7 @@
          </font>
       </Label>
       <TextField fx:id="pesel" layoutX="303.0" layoutY="296.0" prefHeight="25.0" prefWidth="183.0" promptText="Pesel:" style="-fx-background-color: #454B50; -fx-text-fill: #F9E96E;" />
-      <Button layoutX="85.0" layoutY="353.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="411.0" style="-fx-background-color: #1A1A1B;" text="Register">
+      <Button fx:id="register" layoutX="85.0" layoutY="353.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="411.0" style="-fx-background-color: #1A1A1B;" text="Register">
          <font>
             <Font size="15.0" />
          </font>
