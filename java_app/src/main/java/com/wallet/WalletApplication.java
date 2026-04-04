@@ -1,5 +1,6 @@
 package com.wallet;
 
+import javafx.scene.Parent;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -30,12 +31,19 @@ public class WalletApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(WalletApplication.class.getResource("/main-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(WalletApplication.class.getResource("/OknoPowitalne.fxml"));
 
         fxmlLoader.setControllerFactory(springContext::getBean);
 
-        Scene scene = new Scene(fxmlLoader.load(), 600, 500);
+        Parent root = fxmlLoader.load();
 
+        LoginController controller = fxmlLoader.getController();
+
+        if (controller != null){
+            controller.springContext(this.springContext);
+        }
+
+        Scene scene = new Scene(root, 650, 400);
         stage.setTitle("FEHU - Smart Wallet");
         stage.setScene(scene);
         stage.show();

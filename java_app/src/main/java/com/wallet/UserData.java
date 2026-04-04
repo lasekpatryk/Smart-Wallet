@@ -24,10 +24,26 @@ import java.util.Optional;
     private String email;
     private String country;
     private String dayOfBirth;
-    private Long phoneNumber;
-    private Long pesel;
-    private Long postCode;
+    private String phoneNumber;
+    private String pesel;
+    private String postCode;
     private String supportMail;
+
+    public UserData(String login, String name, String surname, String email, String country, String dayOfBirth, String phoneNumber, String pesel) {
+
+        this.login = login;
+        this.name = name;
+        this.surname = surname;
+//        this.password = password;
+        this.email = email;
+        this.country = country;
+        this.dayOfBirth = dayOfBirth;
+        this.phoneNumber = phoneNumber;
+        this.pesel = pesel;
+//        this.postCode = postCode;
+//        this.supportMail = supportMail;
+
+    }
 
     public Long getUserId() {
         return userId;
@@ -93,27 +109,27 @@ import java.util.Optional;
         this.dayOfBirth = dayOfBirth;
     }
 
-    public Long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    public Long getPesel() {
+    public String getPesel() {
         return pesel;
     }
 
-    public void setPesel(Long pesel) {
+    public void setPesel(String pesel) {
         this.pesel = pesel;
     }
 
-    public Long getPostCode() {
+    public String getPostCode() {
         return postCode;
     }
 
-    public void setPostCode(Long postCode) {
+    public void setPostCode(String postCode) {
         this.postCode = postCode;
     }
 
